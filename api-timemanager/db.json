@@ -1,0 +1,19 @@
+{
+  "test": [
+    {
+      "firstname": "salut",
+      "lastname": "toi",
+      "id": 1
+    },
+    {
+      "firstname": "wesh",
+      "lastname": "alors",
+      "id": 2
+    },
+    {
+      "firstname": "protonade",
+      "lastname": "prototype",
+      "id": 3
+    }
+  ]
+}
