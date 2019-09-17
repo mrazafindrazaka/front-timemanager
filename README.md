@@ -1,29 +1,22 @@
 # front-timemanager
 
-## Project setup
+## Installation
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Lancement de l'api de test
 ```
+aller dans le dossier api-timemanager
+
+npm install -g json-server
+
+json-server db.json
+```
+
+### Lancement de VueJS
+```
+aller à la racine du projet
+
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
