@@ -20,7 +20,7 @@ export class TeamService {
     createTeam(data) {
         const url = this.host + "/team";
 
-        return Axios.put(url, data);
+        return Axios.post(url, data);
     }
 
     editTeam(id, data) {

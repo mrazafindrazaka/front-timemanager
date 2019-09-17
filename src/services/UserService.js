@@ -20,7 +20,7 @@ export class UserService {
     createUser(data) {
         const url = this.host + "/user";
 
-        return Axios.put(url, data);
+        return Axios.post(url, data);
     }
 
     editUser(id, data) {

@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Test from "./components/Test";
 import UserList from "./components/UserList";
 import UserEdit from "./components/UserEdit";
+import UserCreate from "./components/UserCreate";
 
 Vue.use(VueRouter);
 
@@ -11,13 +11,18 @@ let router = new VueRouter({
     routes: [
         {
             path: '/',
-            component: Test,
-            name: 'test'
+            component: UserList,
+            name: 'home'
         },
         {
             path: '/userlist',
             component: UserList,
             name: 'userlist'
+        },
+        {
+            path: '/usercreate',
+            component: UserCreate,
+            name: 'usercreate'
         },
         {
             path: '/useredit/:id',

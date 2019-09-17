@@ -20,7 +20,7 @@ export class RoleService {
     createRole(data) {
         const url = this.host + "/role";
 
-        return Axios.put(url, data);
+        return Axios.post(url, data);
     }
 
     editRole(id, data) {

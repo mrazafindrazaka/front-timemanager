@@ -1,16 +1,16 @@
 <template>
-    <div id="useredit">
-        <h2>Edit User</h2>
+    <div id="usercreate">
+        <h2>Create User</h2>
         <button @click="$router.go(-1)" class="btn btn-primary">BACK TO USER LIST</button>
-        <form v-if="user" @submit.prevent="edit_user(user.id)">
+        <form @submit.prevent="create_user">
             <div class="form-group">
                 <label for="first_name"></label>
-                <input id="first_name" class="form-control" type="text" name="first_name" :placeholder=user.first_name
+                <input id="first_name" class="form-control" type="text" name="first_name" placeholder="first_name"
                        v-model="first_name" required/>
             </div>
             <div class="form-group">
                 <label for="last_name"></label>
-                <input id="last_name" class="form-control" type="text" name="last_name" :placeholder=user.last_name
+                <input id="last_name" class="form-control" type="text" name="last_name" placeholder="last_name"
                        v-model="last_name"
                        required/>
             </div>
@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label for="email"></label>
-                <input id="email" class="form-control" type="email" name="email" :placeholder=user.email v-model="email"
+                <input id="email" class="form-control" type="email" name="email" placeholder="email" v-model="email"
                        required/>
             </div>
             <div>
@@ -54,44 +54,8 @@
 
 
     export default {
-        name: "UserEdit",
+        name: "UserCreate",
         methods: {
-            get_user: function (id) {
-                user_service.getUser(id).then(response => {
-                    if (response.status === 200) {
-                        this.user = response.data;
-                        if (this.user) {
-                            this.first_name = this.user.first_name;
-                            this.last_name = this.user.last_name;
-                            this.team_selected = this.user.id_team;
-                            this.role_selected = this.user.id_role;
-                            this.email = this.user.email;
-                        }
-                    }
-                })
-            },
-            get_team_name: function (id_team) {
-                let team = null;
-
-                if (this.teams) {
-                    this.teams.forEach(e => {
-                        if (e.id === id_team)
-                            team = e.team_name;
-                    })
-                }
-                return team;
-            },
-            get_role_name: function (id_role) {
-                let role = null;
-
-                if (this.roles) {
-                    this.roles.forEach(e => {
-                        if (e.id === id_role)
-                            role = e.role;
-                    })
-                }
-                return role;
-            },
             get_teams: function () {
                 teams_service.getAllTeams().then(response => {
                     if (response.status === 200) {
@@ -110,7 +74,7 @@
                     }
                 });
             },
-            edit_user: function (id) {
+            create_user: function () {
                 let data = {
                     first_name: this.first_name,
                     last_name: this.last_name,
@@ -118,28 +82,30 @@
                     id_role: this.role_selected,
                     email: this.email
                 };
-                user_service.editUser(id, data).then(response => {
-                    if (response.status === 200) {
-                        this.$swal("User modified with success");
-                        this.get_user(this.$route.params.id);
+                user_service.createUser(data).then(response => {
+                    if (response.status === 201) {
+                        this.$swal("User created with success");
+                        this.first_name = null;
+                        this.last_name = null;
+                        this.team_selected = 1;
+                        this.role_selected = 3;
+                        this.email = null;
                     }
                 });
             }
         },
         data() {
             return {
-                user: this.user,
                 teams: this.teams,
                 roles: this.roles,
-                first_name: this.first_name,
-                last_name: this.last_name,
-                team_selected: this.team_selected,
-                role_selected: this.role_selected,
-                email: this.email
+                first_name: null,
+                last_name: null,
+                team_selected: 1,
+                role_selected: 3,
+                email: null
             }
         },
         mounted() {
-            this.get_user(this.$route.params.id);
             this.get_teams();
             this.get_roles();
         }

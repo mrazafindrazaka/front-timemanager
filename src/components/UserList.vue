@@ -1,6 +1,7 @@
 <template>
     <div id="userlist">
         <h2>List User</h2>
+        <router-link class="btn btn-primary" :to="{ name: 'usercreate' }">NEW USER</router-link>
         <div class="row-center-border-div">
             <div class="panel panel-default">
                 <div class="panel-heading">
