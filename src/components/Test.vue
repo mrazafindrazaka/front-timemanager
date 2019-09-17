@@ -20,10 +20,12 @@
                 <div>
                     <form @submit.prevent="edit_test(data.id)">
                         <label>
-                            <input type="text" name="firstname" :placeholder=data.firstname v-model="firstname[data.id]" required/>
+                            <input type="text" name="firstname" :placeholder=data.firstname v-model="firstname[data.id]"
+                                   required/>
                         </label>
                         <label>
-                            <input type="text" name="lastname" :placeholder=data.lastname v-model="lastname[data.id]" required/>
+                            <input type="text" name="lastname" :placeholder=data.lastname v-model="lastname[data.id]"
+                                   required/>
                         </label>
                         <input type="submit" value="edit"/>
                     </form>
@@ -56,7 +58,7 @@
             edit_test: function (id) {
                 let data = {
                     firstname: this.firstname[id],
-                    lastname: this.lastname[id]
+                    lastname: this.lastname[id],
                 };
                 service.editTest(id, data).then(response => {
                     if (response.status === 200) {

@@ -1,19 +1,52 @@
 {
-  "test": [
+  "user": [
     {
-      "firstname": "salut",
-      "lastname": "toi",
+      "first_name": "subaru",
+      "last_name": "manager",
+      "id_team": 1,
+      "id_role": 2,
+      "email": "subaru.manager@gotham.com",
       "id": 1
     },
     {
-      "firstname": "wesh",
-      "lastname": "alors",
+      "first_name": "emilia",
+      "last_name": "tan",
+      "id_team": 1,
+      "id_role": 3,
+      "email": "emilia.tan@gotham.com",
       "id": 2
     },
     {
-      "firstname": "protonade",
-      "lastname": "prototype",
+      "first_name": "rem",
+      "last_name": "waifu",
+      "id_team": 2,
+      "id_role": 3,
+      "email": "rem.waifu@gotham.com",
       "id": 3
+    }
+  ],
+  "role": [
+    {
+      "role": "general manager",
+      "id": 1
+    },
+    {
+      "role": "manager",
+      "id": 2
+    },
+    {
+      "role": "employee",
+      "id": 3
+    }
+  ],
+  "team": [
+    {
+      "team_name": "team 1",
+      "id": 1
+    },
+    {
+      "team_name": "team 2",
+      "id": 2
     }
   ]
 }
