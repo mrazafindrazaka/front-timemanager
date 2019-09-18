@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import UserList from "./components/UserList";
 import UserEdit from "./components/UserEdit";
 import UserCreate from "./components/UserCreate";
+import UserDashboard from "./components/UserDashboard";
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,11 @@ let router = new VueRouter({
             path: '/useredit/:id',
             component: UserEdit,
             name: 'useredit'
+        },
+        {
+            path: '/dashboard/:id',
+            component: UserDashboard,
+            name: 'userdashboard'
         },
         {
             path: '*',

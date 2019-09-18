@@ -1,7 +1,7 @@
 <template>
     <div id="useredit">
         <h2>Edit User</h2>
-        <button @click="$router.go(-1)" class="btn btn-primary">BACK TO USER LIST</button>
+        <button v-on:click="back_list" class="btn btn-primary mb-4">BACK TO USER LIST</button>
         <form v-if="user" @submit.prevent="edit_user(user.id)">
             <div class="form-group">
                 <label for="first_name"></label>
@@ -56,6 +56,9 @@
     export default {
         name: "UserEdit",
         methods: {
+            back_list: function() {
+                this.$router.push({name: 'userlist'});
+            },
             get_user: function (id) {
                 user_service.getUser(id).then(response => {
                     if (response.status === 200) {

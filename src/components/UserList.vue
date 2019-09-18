@@ -1,40 +1,23 @@
 <template>
     <div id="userlist">
         <h2>List User</h2>
-        <router-link class="btn btn-primary" :to="{ name: 'usercreate' }">NEW USER</router-link>
-        <div class="row-center-border-div">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Role</th>
-                            <th>Team</th>
-                            <th>Email</th>
-                            <th colspan="2">Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody v-if="users">
-                        <tr v-for="(user, id_user) in users" :key="id_user">
-                            <td>{{ user.first_name }}</td>
-                            <td>{{ user.last_name }}</td>
-                            <td>{{ get_role_name(user.id_role) }}</td>
-                            <td>{{ get_team_name(user.id_team) }}</td>
-                            <td>{{ user.email }}</td>
-                            <td>
-                                <router-link class="btn btn-primary" :to="{ name: 'useredit', params: { id: user.id }}">
-                                    EDIT
-                                </router-link>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger" v-on:click="delete_user(user.id)">DELETE</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+        <router-link class="btn btn-primary mb-3" :to="{ name: 'usercreate' }">NEW USER</router-link>
+        <div v-if="users" class="row">
+            <div v-for="(user, id_user) in users" :key="id_user" class="col-lg-4 mb-5 text-center">
+                <div class="card" v-on:click="go_dashboard(user.id)">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ user.first_name + " " + user.last_name }}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{ user.email }}</li>
+                        <li class="list-group-item">{{ get_role_name(user.id_role) }}</li>
+                        <li class="list-group-item">{{ get_team_name(user.id_team) }}</li>
+                    </ul>
                 </div>
+                <router-link class="btn btn-primary" :to="{ name: 'useredit', params: { id: user.id }}">
+                    EDIT
+                </router-link>
+                <button class="btn btn-danger" v-on:click="delete_user(user.id, user.first_name, user.last_name)">DELETE</button>
             </div>
         </div>
     </div>
@@ -53,6 +36,9 @@
     export default {
         name: "UserList",
         methods: {
+            go_dashboard: function (id) {
+                this.$router.push({name: 'userdashboard', params: {id: id}});
+            },
             get_team_name: function (id_team) {
                 let team = null;
 
@@ -102,15 +88,16 @@
                     }
                 });
             },
-            delete_user: function (id) {
+            delete_user: function (id, first_name, last_name) {
                 this.$swal({
-                    title: 'Are you sure?',
+                    title: "Are you sure to delete " + first_name + " " + last_name,
                     text: "You won't be able to revert this!",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: "Yes, please !",
+                    cancelButtonText: "No!"
                 }).then((result) => {
                     if (result.value === true) {
                         users_service.deleteUser(id).then(response => {
@@ -139,5 +126,7 @@
 </script>
 
 <style scoped>
-
+    .card:hover {
+        box-shadow: 0 0 11px rgba(33,33,33,.2);
+    }
 </style>

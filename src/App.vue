@@ -21,7 +21,6 @@ export default {
 
 <style>
   .footer-bottom {
-    position: relative;
-    min-height: 100vh;
+    min-height: 90vh;
   }
 </style>

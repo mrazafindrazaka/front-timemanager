@@ -10,7 +10,7 @@
     },
     {
       "first_name": "emilia",
-      "last_name": "tan",
+      "last_name": "tantora",
       "id_team": 1,
       "id_role": 3,
       "email": "emilia.tan@gotham.com",
@@ -23,14 +23,6 @@
       "id_role": 3,
       "email": "rem.waifu@gotham.com",
       "id": 3
-    },
-    {
-      "first_name": "ray",
-      "last_name": "charles",
-      "id_team": 2,
-      "id_role": 2,
-      "email": "ray.charles@gotham.com",
-      "id": 5
     }
   ],
   "role": [
