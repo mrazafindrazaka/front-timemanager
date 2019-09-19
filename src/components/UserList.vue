@@ -4,20 +4,24 @@
         <router-link class="btn btn-primary mb-3" :to="{ name: 'usercreate' }">NEW USER</router-link>
         <div v-if="users" class="row">
             <div v-for="(user, id_user) in users" :key="id_user" class="col-lg-4 mb-5 text-center">
-                <div class="card" v-on:click="go_dashboard(user.id)">
-                    <div class="card-body">
+                <div class="card">
+                    <div class="card-body" v-on:click="go_dashboard(user.id)">
                         <h5 class="card-title">{{ user.first_name + " " + user.last_name }}</h5>
                     </div>
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush" v-on:click="go_dashboard(user.id)">
                         <li class="list-group-item">{{ user.email }}</li>
                         <li class="list-group-item">{{ get_role_name(user.id_role) }}</li>
                         <li class="list-group-item">{{ get_team_name(user.id_team) }}</li>
                     </ul>
+                    <div class="card-body d-flex justify-content-between" v-on:click.self="go_dashboard(user.id)">
+                        <router-link class="btn btn-primary" :to="{ name: 'useredit', params: { id: user.id }}">
+                            EDIT
+                        </router-link>
+                        <button class="btn btn-danger" v-on:click="delete_user(user.id, user.first_name, user.last_name)">
+                            DELETE
+                        </button>
+                    </div>
                 </div>
-                <router-link class="btn btn-primary" :to="{ name: 'useredit', params: { id: user.id }}">
-                    EDIT
-                </router-link>
-                <button class="btn btn-danger" v-on:click="delete_user(user.id, user.first_name, user.last_name)">DELETE</button>
             </div>
         </div>
     </div>
@@ -127,6 +131,7 @@
 
 <style scoped>
     .card:hover {
-        box-shadow: 0 0 11px rgba(33,33,33,.2);
+        box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+        cursor: pointer;
     }
 </style>
