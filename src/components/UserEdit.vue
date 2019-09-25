@@ -142,7 +142,12 @@
             }
         },
         mounted() {
-            this.get_user(this.$route.params.id);
+            if (this.$route.params.id)
+                this.get_user(this.$route.params.id);
+            else {
+                const user = localStorage.getItem('user');
+                this.get_user(user.id);
+            }
             this.get_teams();
             this.get_roles();
         }

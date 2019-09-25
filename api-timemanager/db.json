@@ -1,28 +1,22 @@
 {
   "user": [
     {
-      "first_name": "subaru",
-      "last_name": "manager",
-      "id_team": 1,
-      "id_role": 2,
-      "email": "subaru.manager@gotham.com",
-      "id": 1
-    },
-    {
-      "first_name": "emilia",
-      "last_name": "tantora",
-      "id_team": 1,
-      "id_role": 3,
-      "email": "emilia.tan@gotham.com",
-      "id": 2
-    },
-    {
       "first_name": "rem",
       "last_name": "waifu",
       "id_team": 2,
       "id_role": 3,
       "email": "rem.waifu@gotham.com",
+      "password": "rem",
       "id": 3
+    },
+    {
+      "first_name": "miranto",
+      "last_name": "razafindrazaka",
+      "id_team": 2,
+      "id_role": 2,
+      "email": "miranto.razafindrazaka@epitech.eu",
+      "password": "miranto",
+      "id": 4
     }
   ],
   "role": [

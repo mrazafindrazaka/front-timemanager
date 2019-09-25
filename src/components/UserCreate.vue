@@ -35,6 +35,11 @@
                 <input id="email" class="form-control" type="email" name="email" placeholder="email" v-model="email"
                        required/>
             </div>
+            <div class="form-group">
+                <label for="password"></label>
+                <input id="password" class="form-control" type="password" name="password" placeholder="password" v-model="password"
+                       required/>
+            </div>
             <div>
                 <input class="btn btn-primary" type="submit" value="SAVE"/>
             </div>
@@ -80,7 +85,8 @@
                     last_name: this.last_name,
                     id_team: this.team_selected,
                     id_role: this.role_selected,
-                    email: this.email
+                    email: this.email,
+                    password: this.password
                 };
                 user_service.createUser(data).then(response => {
                     if (response.status === 201) {
@@ -90,6 +96,7 @@
                         this.team_selected = 1;
                         this.role_selected = 3;
                         this.email = null;
+                        this.password = null;
                     }
                 });
             }

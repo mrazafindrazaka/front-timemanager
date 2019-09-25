@@ -1,6 +1,6 @@
 <template>
     <div id="userlist">
-        <h2>List User</h2>
+        <h2 class="mb-4">List User</h2>
         <router-link class="btn btn-primary mb-3" :to="{ name: 'usercreate' }">NEW USER</router-link>
         <div v-if="users" class="row">
             <div v-for="(user, id_user) in users" :key="id_user" class="col-lg-4 mb-5 text-center">

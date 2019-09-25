@@ -1,6 +1,6 @@
 <template>
     <div id="useredit">
-        <button v-on:click="back_list" class="btn btn-primary">BACK TO USER LIST</button>
+        <button v-if="connected.id_role === 1" v-on:click="back_list" class="btn btn-primary mb-3">USER LIST</button>
         <div class="row">
             <div class="col-lg-6 mb-4">
                 <h2 v-if="user">{{ user.first_name + " " + user.last_name }}</h2>
@@ -20,8 +20,13 @@
                     </div>
                     <div class="form-group">
                         <label for="id_team"></label>
-                        <select id="id_team" class="form-control" v-model="team_selected" name="id_team" required
+                        <select v-if="connected.id_role !== 1" id="id_team" class="form-control" v-model="team_selected" name="id_team" required
                                 disabled>
+                            <option v-for="(team, id_team) in teams" v-bind:value="team.id" :key="id_team">
+                                {{ team.team_name }}
+                            </option>
+                        </select>
+                        <select v-else id="id_team" class="form-control" v-model="team_selected" name="id_team" required>
                             <option v-for="(team, id_team) in teams" v-bind:value="team.id" :key="id_team">
                                 {{ team.team_name }}
                             </option>
@@ -29,8 +34,13 @@
                     </div>
                     <div class="form-group">
                         <label for="id_role"></label>
-                        <select id="id_role" class="form-control" v-model="role_selected" name="id_role" required
+                        <select v-if="connected.id_role !== 1" id="id_role" class="form-control" v-model="role_selected" name="id_role" required
                                 disabled>
+                            <option v-for="(role, id_role) in roles" v-bind:value="role.id" :key="id_role">
+                                {{ role.role }}
+                            </option>
+                        </select>
+                        <select v-else id="id_role" class="form-control" v-model="role_selected" name="id_role" required>
                             <option v-for="(role, id_role) in roles" v-bind:value="role.id" :key="id_role">
                                 {{ role.role }}
                             </option>
@@ -88,6 +98,13 @@
                     }
                 })
             },
+            get_connected_user: function (id) {
+                user_service.getUser(id).then(response => {
+                    if (response.status === 200) {
+                        this.connected = response.data;
+                    }
+                })
+            },
             get_teams: function () {
                 teams_service.getAllTeams().then(response => {
                     if (response.status === 200) {
@@ -124,6 +141,7 @@
         },
         data() {
             return {
+                connected: this.connected,
                 user: this.user,
                 teams: this.teams,
                 roles: this.roles,
@@ -197,7 +215,14 @@
             }
         },
         mounted() {
-            this.get_user(this.$route.params.id);
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (this.$route.params.id)
+                this.get_user(this.$route.params.id);
+            else {
+                this.get_user(user.id);
+            }
+            this.get_connected_user(user.id);
             this.get_teams();
             this.get_roles();
         }
