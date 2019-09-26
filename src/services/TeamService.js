@@ -6,7 +6,7 @@ export class TeamService {
     }
 
     getAllTeams() {
-        const url = this.host + "/team";
+        const url = this.host + "/teams";
 
         return Axios.get(url);
     }

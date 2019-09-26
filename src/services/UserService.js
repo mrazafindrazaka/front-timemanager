@@ -6,7 +6,7 @@ export class UserService {
     }
 
     getAllUsers() {
-        const url = this.host + "/user";
+        const url = this.host + "/users";
 
         return Axios.get(url);
     }

@@ -6,7 +6,7 @@ export class RoleService {
     }
 
     getAllRoles() {
-        const url = this.host + "/role";
+        const url = this.host + "/roles";
 
         return Axios.get(url);
     }
