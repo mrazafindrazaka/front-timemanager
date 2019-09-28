@@ -12,7 +12,7 @@ export class UserService {
     }
 
     getUser(id) {
-        const url = this.host + "/user/" + id;
+        const url = this.host + "/user?id_user=" + id;
 
         return Axios.get(url);
     }
@@ -24,13 +24,13 @@ export class UserService {
     }
 
     editUser(id, data) {
-        const url = this.host + "/user/" + id;
+        const url = this.host + "/user?id_user=" + id;
 
         return Axios.put(url, data);
     }
 
     deleteUser(id) {
-        const url = this.host + "/user/" + id;
+        const url = this.host + "/user?id_user=" + id;
 
         return Axios.delete(url);
     }

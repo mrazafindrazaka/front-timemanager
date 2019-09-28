@@ -1,0 +1,714 @@
+{
+	"info": {
+		"_postman_id": "f4b843e3-58bc-41f2-aebc-01298932ecc1",
+		"name": "Gotham",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0bf8e8f-26b3-4255-b6e9-65fbe81cb964",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b1ab0df-b7e3-4529-844f-7b488436e4df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/createUser?last_name=Danne&first_name=Marc&email=dft@gmail.com&password=123&role=employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"createUser"
+					],
+					"query": [
+						{
+							"key": "last_name",
+							"value": "Danne"
+						},
+						{
+							"key": "first_name",
+							"value": "Marc"
+						},
+						{
+							"key": "email",
+							"value": "dft@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "123"
+						},
+						{
+							"key": "role",
+							"value": "employee"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all user List<User>",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0bf8e8f-26b3-4255-b6e9-65fbe81cb964",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b1ab0df-b7e3-4529-844f-7b488436e4df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/queryUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"queryUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upadate user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0bf8e8f-26b3-4255-b6e9-65fbe81cb964",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b1ab0df-b7e3-4529-844f-7b488436e4df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/updateUserById?last_name=Danny&first_name=Marc&email=dft@gmail.com&password=123&role=employee&id_user=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"updateUserById"
+					],
+					"query": [
+						{
+							"key": "last_name",
+							"value": "Danny"
+						},
+						{
+							"key": "first_name",
+							"value": "Marc"
+						},
+						{
+							"key": "email",
+							"value": "dft@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "123"
+						},
+						{
+							"key": "role",
+							"value": "employee"
+						},
+						{
+							"key": "id_user",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0bf8e8f-26b3-4255-b6e9-65fbe81cb964",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b1ab0df-b7e3-4529-844f-7b488436e4df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/deleteUserById?id_user=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"deleteUserById"
+					],
+					"query": [
+						{
+							"key": "id_user",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Team",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0bf8e8f-26b3-4255-b6e9-65fbe81cb964",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b1ab0df-b7e3-4529-844f-7b488436e4df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/addEmployeeTeam?id_employee=4&team_name=guimauve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"addEmployeeTeam"
+					],
+					"query": [
+						{
+							"key": "id_employee",
+							"value": "4"
+						},
+						{
+							"key": "team_name",
+							"value": "guimauve"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/addEmployeeTeam?id_employee=4&team_name=guimauve",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0bf8e8f-26b3-4255-b6e9-65fbe81cb964",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b1ab0df-b7e3-4529-844f-7b488436e4df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/addEmployeeTeam?id_employee=4&team_name=guimauve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"addEmployeeTeam"
+					],
+					"query": [
+						{
+							"key": "id_employee",
+							"value": "4"
+						},
+						{
+							"key": "team_name",
+							"value": "guimauve"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/clockInUserById?id_user=4&clock_in=2018-09-15 09:00:00",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0bf8e8f-26b3-4255-b6e9-65fbe81cb964",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b1ab0df-b7e3-4529-844f-7b488436e4df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/clockInUserById?id_user=4&clock_in=2018-09-15 09:00:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"clockInUserById"
+					],
+					"query": [
+						{
+							"key": "id_user",
+							"value": "4"
+						},
+						{
+							"key": "clock_in",
+							"value": "2018-09-15 09:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/clockOutUserById?id_clock=7&clock_out=2018-09-15 17:00:00",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0bf8e8f-26b3-4255-b6e9-65fbe81cb964",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b1ab0df-b7e3-4529-844f-7b488436e4df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/clockOutUserById?id_clock=7&clock_out=2018-09-15 17:00:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"clockOutUserById"
+					],
+					"query": [
+						{
+							"key": "id_clock",
+							"value": "7"
+						},
+						{
+							"key": "clock_out",
+							"value": "2018-09-15 17:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/role",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0bf8e8f-26b3-4255-b6e9-65fbe81cb964",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b1ab0df-b7e3-4529-844f-7b488436e4df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/role",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/roles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0bf8e8f-26b3-4255-b6e9-65fbe81cb964",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b1ab0df-b7e3-4529-844f-7b488436e4df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9090/roles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0bf8e8f-26b3-4255-b6e9-65fbe81cb964",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b1ab0df-b7e3-4529-844f-7b488436e4df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "dft@gmail.com",
+						"equals": true
+					},
+					{
+						"key": "password",
+						"value": "123",
+						"equals": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "dft@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/login?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "dft@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"disabled": true
+						},
+						{
+							"key": "hidden",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

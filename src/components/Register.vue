@@ -1,6 +1,6 @@
 <template>
-    <div id="usercreate">
-        <h2>Create User</h2>
+    <div id="register">
+        <h2>Register</h2>
         <form @submit.prevent="create_user">
             <div class="form-group">
                 <label for="last_name"></label>
@@ -20,10 +20,8 @@
             </div>
             <div class="form-group">
                 <label for="id_role"></label>
-                <select id="id_role" class="form-control" v-model="role_selected" name="id_role" required>
+                <select id="id_role" class="form-control" v-model="role_selected" name="id_role" disabled required>
                     <option value="Employee">Employee</option>
-                    <option value="Manager">Manager</option>
-                    <option value="GeneraManager">General Manager</option>
                 </select>
             </div>
             <div class="form-group">
@@ -33,7 +31,7 @@
                        required/>
             </div>
             <div>
-                <input class="btn btn-primary" type="submit" value="SAVE"/>
+                <input class="btn btn-primary" type="submit" value="Register"/>
             </div>
         </form>
     </div>
@@ -46,7 +44,7 @@
     const user_service = new UserService(host);
 
     export default {
-        name: "UserCreate",
+        name: "Register",
         methods: {
             create_user: function () {
                 let data = new FormData();
@@ -58,12 +56,9 @@
                 data.set('password', this.password);
                 // eslint-disable-next-line no-unused-vars
                 user_service.createUser(data).then(response => {
-                    this.$swal("User created with success");
-                    this.first_name = null;
-                    this.last_name = null;
-                    this.role_selected = "Employee";
-                    this.email = null;
-                    this.password = null;
+                    this.$swal("User registered with success");
+                    setInterval(5);
+                    window.location.href = "/login";
                 }).catch((error) => {
                     this.$swal(error.message);
                 });

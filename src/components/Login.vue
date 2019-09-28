@@ -18,6 +18,7 @@
                     <input class="btn btn-primary" type="submit" value="LOG IN"/>
                 </div>
             </form>
+            <router-link class="btn btn-primary mb-3 mt-3" :to="{ name: 'register' }">REGISTER</router-link>
         </div>
     </div>
 </template>
@@ -25,7 +26,7 @@
 <script>
     import {AuthService} from "../services/AuthService";
 
-    const url = "http://localhost:3000";
+    const url = "http://localhost:9090";
     const service = new AuthService(url);
 
     export default {
@@ -37,13 +38,14 @@
                     "password": this.password
                 };
                 service.authLogin(data).then(response => {
-                    localStorage.setItem('user', JSON.stringify(response.data.user));
-                    localStorage.setItem('jwt', response.data.token);
-                    if (localStorage.getItem('jwt') !== null) {
+/*                    localStorage.setItem('user', response.data.user);
+                    localStorage.setItem('jwt', response.data.token); */
+                    localStorage.setItem('user', JSON.stringify(response.data));
+                    if (localStorage.getItem('user') !== null) {
                          window.location.href = '/dashboard';
                     }
                 }).catch((error) => {
-                    this.$swal(error.response.data);
+                    this.$swal(error.message);
                 });
             }
         },

@@ -5,6 +5,7 @@ import UserEdit from "./components/UserEdit";
 import UserCreate from "./components/UserCreate";
 import UserDashboard from "./components/UserDashboard";
 import Login from "./components/Login";
+import Register from "./components/Register";
 
 Vue.use(VueRouter);
 
@@ -20,12 +21,20 @@ let router = new VueRouter({
             }
         },
         {
+            path: '/register',
+            component: Register,
+            name: 'register',
+            meta: {
+                guest: true
+            }
+        },
+        {
             path: '/userlist',
             component: UserList,
             name: 'userlist',
             meta: {
                 requiresAuth: true,
-                role: 1 || 2
+                role: true
             }
         },
         {
@@ -55,15 +64,6 @@ let router = new VueRouter({
             }
         },
         {
-            path: '/dashboard/:id',
-            component: UserDashboard,
-            name: 'admindashboard',
-            meta: {
-                requiresAuth: true,
-                role: true
-            }
-        },
-        {
             path: '*',
             redirect: '/'
         }
@@ -72,7 +72,7 @@ let router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
-        if (localStorage.getItem('jwt') === null) {
+        if (localStorage.getItem('user') === null) {
             next({
                 name: 'login',
                 params: {
@@ -82,7 +82,7 @@ router.beforeEach((to, from, next) => {
         } else {
             let user = JSON.parse(localStorage.getItem('user'));
             if (to.matched.some(record => record.meta.role)) {
-                if (user.id_role === 1 || user.id_role === 2) {
+                if (user.roles[0].role === "GeneraManager" || user.roles[0].role === "Manager") {
                     next();
                 } else {
                     next({name: 'userdashboard'});
@@ -92,7 +92,7 @@ router.beforeEach((to, from, next) => {
             }
         }
     } else if (to.matched.some(record => record.meta.guest)) {
-        if (localStorage.getItem('jwt') === null) {
+        if (localStorage.getItem('user') === null) {
             next();
         } else {
             next({name: 'userdashboard'});
