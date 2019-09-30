@@ -30,7 +30,7 @@
                         <select id="role" class="form-control" v-model="role_selected" name="role" disabled required>
                             <option value="Employee">Employee</option>
                             <option value="Manager">Manager</option>
-                            <option value="GeneraManager">General Manager</option>
+                            <option value="GeneralManager">General Manager</option>
                         </select>
                     </div>
                     <div>
