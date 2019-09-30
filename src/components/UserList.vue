@@ -4,7 +4,7 @@
         <router-link class="btn btn-primary mb-3" :to="{ name: 'usercreate' }">NEW USER</router-link>
         <div v-if="users" class="row">
             <div v-for="(user, id_user) in users" :key="id_user" class="col-lg-4 mb-5 text-center">
-                <div class="card">
+                <div class="card" v-if="user.hidden === false">
                     <div class="card-body" v-on:click="go_dashboard(user.id)">
                         <h5 class="card-title">{{ user.firstName + " " + user.lastName }}</h5>
                     </div>
