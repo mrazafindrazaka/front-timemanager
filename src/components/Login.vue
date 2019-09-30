@@ -53,7 +53,7 @@
                             // eslint-disable-next-line no-console
                             console.log(error.message);
                         });
-                        //window.location.href = '/dashboard';
+                        window.location.href = '/dashboard';
                     }
                 }).catch((error) => {
                     this.$swal(error.message);

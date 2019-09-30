@@ -48,7 +48,7 @@
                             console.log(error.message);
                         });
                         localStorage.removeItem('user');
-                       // window.location.href = "/login";
+                        window.location.href = "/login";
                     }
                 });
             }
