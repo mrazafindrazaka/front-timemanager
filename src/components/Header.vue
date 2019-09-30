@@ -4,21 +4,26 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button-->
-            <span class="navbar-brand">GothamProject</span>
+        <span class="navbar-brand">GothamProject</span>
         <!--div class="collapse navbar-collapse" id="navbarNav"-->
-            <ul class="navbar-nav ml-auto" v-if="logged">
-                <li class="nav-item" v-if="user.roles[0].role === 'GeneraManager'">
-                    <router-link to="/userlist" class="btn nav-link">List user</router-link>
-                </li>
-                <li class="nav-item">
-                    <button v-on:click="disconnect" class="btn nav-link">Log out</button>
-                </li>
-            </ul>
+        <ul class="navbar-nav ml-auto" v-if="logged">
+            <li class="nav-item" v-if="user.roles[0].role === 'GeneraManager'">
+                <router-link to="/userlist" class="btn nav-link">List user</router-link>
+            </li>
+            <li class="nav-item">
+                <button v-on:click="disconnect" class="btn nav-link">Log out</button>
+            </li>
+        </ul>
         <!--/div-->
     </nav>
 </template>
 
 <script>
+    import {ClockService} from "../services/ClockService";
+
+    const url = "http://localhost:9090";
+    const clock = new ClockService(url);
+
     export default {
         name: "Header",
         methods: {
@@ -33,13 +38,22 @@
                     cancelButtonText: "No"
                 }).then((result) => {
                     if (result.value === true) {
+                        let user = JSON.parse(localStorage.getItem('user'));
+
+                        clock.clockOut(user.id).then(() => {
+                            // eslint-disable-next-line no-console
+                            console.log('clock out success');
+                        }).catch((error) => {
+                            // eslint-disable-next-line no-console
+                            console.log(error.message);
+                        });
                         localStorage.removeItem('user');
-                        window.location.href = "/login";
+                       // window.location.href = "/login";
                     }
                 });
             }
         },
-        data () {
+        data() {
             return {
                 user: JSON.parse(localStorage.getItem('user')),
                 logged: localStorage.getItem('user') !== null

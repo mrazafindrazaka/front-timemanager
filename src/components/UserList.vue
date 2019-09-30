@@ -62,6 +62,8 @@
                         users_service.deleteUser(id).then(response => {
                             this.$swal("User deleted with success");
                             this.get_users();
+                        }).catch((error) => {
+                            this.$swal(error.message);
                         })
                     }
                 });

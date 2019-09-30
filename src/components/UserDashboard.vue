@@ -60,6 +60,10 @@
             back_list: function () {
                 this.$router.push({name: 'userlist'});
             },
+            // eslint-disable-next-line no-unused-vars
+            time_manager: function (id) {
+
+            },
             get_user: function (id) {
                 user_service.getUser(id).then(response => {
                     this.user = response.data;

@@ -25,9 +25,11 @@
 
 <script>
     import {AuthService} from "../services/AuthService";
+    import {ClockService} from "../services/ClockService";
 
     const url = "http://localhost:9090";
     const service = new AuthService(url);
+    const clock = new ClockService(url);
 
     export default {
         name: "Login",
@@ -38,11 +40,20 @@
                     "password": this.password
                 };
                 service.authLogin(data).then(response => {
-/*                    localStorage.setItem('user', response.data.user);
-                    localStorage.setItem('jwt', response.data.token); */
+                    /*                    localStorage.setItem('user', response.data.user);
+                                        localStorage.setItem('jwt', response.data.token); */
                     localStorage.setItem('user', JSON.stringify(response.data));
                     if (localStorage.getItem('user') !== null) {
-                         window.location.href = '/dashboard';
+                        let user = JSON.parse(localStorage.getItem('user'));
+
+                        clock.clockIn(user.id).then(() => {
+                            // eslint-disable-next-line no-console
+                            console.log('clock in success');
+                        }).catch((error) => {
+                            // eslint-disable-next-line no-console
+                            console.log(error.message);
+                        });
+                        //window.location.href = '/dashboard';
                     }
                 }).catch((error) => {
                     this.$swal(error.message);
@@ -62,6 +73,7 @@
     #login {
         position: relative;
     }
+
     .center {
         position: absolute;
         top: 50%;
