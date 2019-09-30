@@ -10,6 +10,7 @@ import Register from "./components/Register";
 Vue.use(VueRouter);
 
 let router = new VueRouter({
+    mode: 'history',
     routes: [
         {
             path: '/',
