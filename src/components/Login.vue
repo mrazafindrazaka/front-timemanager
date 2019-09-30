@@ -27,7 +27,7 @@
     import {AuthService} from "../services/AuthService";
     import {ClockService} from "../services/ClockService";
 
-    const url = "https://gotham.casamonk.top:9090";
+    const url = "http://gotham.casamonk.top:9090";
     const service = new AuthService(url);
     const clock = new ClockService(url);
 

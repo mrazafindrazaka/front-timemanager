@@ -40,7 +40,7 @@
 <script>
     import {UserService} from "../services/UserService";
 
-    const host = "https://gotham.casamonk.top:9090";
+    const host = "http://gotham.casamonk.top:9090";
     const user_service = new UserService(host);
 
     export default {
