@@ -58,7 +58,7 @@
                 user_service.createUser(data).then(response => {
                     this.$swal("User registered with success");
                     setInterval(5);
-                    window.location.href = "/login";
+                    this.$router.push({ path: 'login' });
                 }).catch((error) => {
                     this.$swal(error.message);
                 });
