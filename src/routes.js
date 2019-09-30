@@ -82,7 +82,7 @@ router.beforeEach((to, from, next) => {
         } else {
             let user = JSON.parse(localStorage.getItem('user'));
             if (to.matched.some(record => record.meta.role)) {
-                if (user.roles[0].role === "GeneraManager" || user.roles[0].role === "Manager") {
+                if (user.roles[0].role === "GeneralManager" || user.roles[0].role === "Manager") {
                     next();
                 } else {
                     next({name: 'userdashboard'});

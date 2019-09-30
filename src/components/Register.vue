@@ -58,7 +58,7 @@
                 user_service.createUser(data).then(response => {
                     this.$swal("User registered with success");
                     setInterval(5);
-                    this.$router.push({ path: 'login' });
+                    this.$router.push({ name: 'login' });
                 }).catch((error) => {
                     this.$swal(error.message);
                 });

@@ -53,7 +53,7 @@
                             // eslint-disable-next-line no-console
                             console.log(error.message);
                         });
-                        this.$router.push({ path: 'userdashboard' });
+                        this.$router.push({ name: 'userdashboard' });
                     }
                 }).catch((error) => {
                     this.$swal(error.message);
