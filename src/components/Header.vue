@@ -48,7 +48,7 @@
                             console.log(error.message);
                         });
                         localStorage.removeItem('user');
-                        window.location.href = "/login";
+                        this.$router.push({ path: 'login' });
                     }
                 });
             }

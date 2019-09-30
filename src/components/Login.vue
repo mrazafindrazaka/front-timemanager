@@ -53,7 +53,7 @@
                             // eslint-disable-next-line no-console
                             console.log(error.message);
                         });
-                        window.location.href = '/dashboard';
+                        this.$router.push({ path: 'userdashboard' });
                     }
                 }).catch((error) => {
                     this.$swal(error.message);
