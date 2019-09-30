@@ -21,7 +21,7 @@
 <script>
     import {ClockService} from "../services/ClockService";
 
-    const url = "http://localhost:9090";
+    const url = "https://gotham.casamonk.top:9090";
     const clock = new ClockService(url);
 
     export default {
